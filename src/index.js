@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import './index.css';
+import ListView from './ListView';
+import ThumbView from './ThumbView';
+import GalleryView from './GalleryView';
 
 
 function SelectorButtons(props) {
@@ -22,27 +25,6 @@ function SelectView(props) {
   } else if (props.view === 'gallery') {
     return ( <GalleryView /> ) 
   }
-}
-
-function ListView(props) {
-// "list" - display the title of the image, the link (not the  actual image), and description.  
-  return (
-    <h2>List View</h2>
-  )
-}
-
-function ThumbView(props) {
-// "thumbnail" - the image as a "thumbnail" (within a 100x100 pixel scale) and the title . 
-  return (
-    <h2>Thumb View</h2>
-  )
-}
-
-function GalleryView(props) {
-// "gallery" - Display the title, the full-size image, and the description.
-  return (
-    <h2>Gallery View</h2>
-  )
 }
 
 export default class ImageGallery extends Component {
