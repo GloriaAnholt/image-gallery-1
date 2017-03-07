@@ -5,6 +5,11 @@ import ListView from './ListView';
 import ThumbView from './ThumbView';
 import GalleryView from './GalleryView';
 
+const images = {
+  title: 'Cute Bunny',
+  description: 'Isn\'t it fuzzy-wuzzy cutest thing you\'ve ever seen?',
+  url: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg'
+}
 
 function SelectorButtons(props) {
   return (
@@ -19,11 +24,11 @@ function SelectorButtons(props) {
 
 function SelectView(props) {
   if (props.view === 'list') {
-    return ( <ListView /> )
+    return ( <ListView images={images} /> )
   } else if (props.view === 'thumb') {
-    return ( <ThumbView />)
+    return ( <ThumbView images={images} />)
   } else if (props.view === 'gallery') {
-    return ( <GalleryView /> ) 
+    return ( <GalleryView images={images} /> ) 
   }
 }
 
