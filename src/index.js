@@ -3,26 +3,16 @@ import ReactDOM from 'react-dom'
 import './index.css';
 
 
-function ListView(props) {
-  // "list" - display the title of the image, the link (not the  actual image), and description.  
-  return (
-    <h2>List View</h2>
-  )
-}
-
-function ThumbView(props) {
-  // "thumbnail" - the image as a "thumbnail" (within a 100x100 pixel scale) and the title . 
-  return (
-    <h2>Thumb View</h2>
-  )
-}
-
-function GalleryView(props) {
-  // "gallery" - Display the title, the full-size image, and the description. 
-  return (
-    <h2>Gallery View</h2>
-  )
-}
+function SelectorButtons(props) {
+    return (
+      <div>
+        <p>Select a view type</p>
+        <button onClick={ () => props.ListView() }>List view</button>
+        <button onClick={ () => props.ThumbView() }>Thumbnail view</button>
+        <button onClick={ () => props.GalleryView() }>Gallery view</button>
+      </div>
+    )
+  }
 
 export default class ImageGallery extends Component {
   constructor(props) {
@@ -30,12 +20,39 @@ export default class ImageGallery extends Component {
     this.state = {
       view: 'list'
     }
+    this.ListView = this.ListView.bind(this);
+    this.ThumbView = this.ThumbView.bind(this);
+    this.GalleryView = this.GalleryView.bind(this);
+  }
+
+  ListView(props) {
+    // "list" - display the title of the image, the link (not the  actual image), and description.  
+    return (
+      <h2>List View</h2>
+    )
+  }
+
+  ThumbView(props) {
+    // "thumbnail" - the image as a "thumbnail" (within a 100x100 pixel scale) and the title . 
+    return (
+      <h2>Thumb View</h2>
+    )
+  }
+
+  GalleryView(props) {
+    // "gallery" - Display the title, the full-size image, and the description. 
+    return (
+      <h2>Gallery View</h2>
+    )
   }
 
   render() {
     return (
       <div>
-        <p>there's a component</p>
+        <SelectorButtons 
+            ListView={ this.ListView }
+            ThumbView={ this.ThumbView }
+            GalleryView={ this.GalleryView } />
       </div>
     )
   }
