@@ -43,7 +43,7 @@ function SelectView(props) {
   if (props.view === 'list') {
     return ( <ListView images={images} /> )
   } else if (props.view === 'thumb') {
-    return ( <ThumbView images={images} />)
+    return ( <ThumbView images={images[0]} />)
   } else if (props.view === 'gallery') {
     return ( <GalleryView images={images} /> ) 
   }
