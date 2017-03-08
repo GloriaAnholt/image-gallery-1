@@ -11,9 +11,9 @@ function SelectorButtons(props) {
   return (
     <div>
       <p>Select a view type</p>
-      <button value="list" onClick={ () => props.onList() }>List view</button>
-      <button value="thumb" onClick={ () => props.onThumb() }>Thumbnail view</button>
-      <button value="gallery" onClick={ () => props.onGallery() }>Gallery view</button>
+      <button value="list" onClick={ () => props.setView('list') }>List view</button>
+      <button value="thumb" onClick={ () => props.setView('thumb') }>Thumbnail view</button>
+      <button value="gallery" onClick={ () => props.setView('gallery') }>Gallery view</button>
     </div>
   )
 }
@@ -34,31 +34,17 @@ export default class ImageGallery extends Component {
     this.state = {
       view: 'list'
     }
-    this.onList = this.onList.bind(this);
-    this.onThumb = this.onThumb.bind(this);
-    this.onGallery = this.onGallery.bind(this);
+    this.setView = this.setView.bind(this);
   }
 
-  onList () {
-    this.setState({ view: 'list'})
+  setView(selection) {
+    this.setState({ view: selection })
   }
-
-  onThumb () {
-    this.setState({ view: 'thumb'})
-  }
-  
-  onGallery () {
-    this.setState({ view: 'gallery'})
-  }
-
 
   render() {
     return (
       <div>
-        <SelectorButtons 
-            onList={ this.onList }
-            onThumb={ this.onThumb }
-            onGallery={ this.onGallery } />
+        <SelectorButtons setView={ this.setView } />
         <SelectView view={ this.state.view } /> 
       </div>
     )
