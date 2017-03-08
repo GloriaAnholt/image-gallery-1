@@ -11,21 +11,21 @@ function SelectorButtons(props) {
   return (
     <div>
       <p>Select a view type</p>
-      <button value="list" onClick={ () => props.setView('list') }>List view</button>
-      <button value="thumb" onClick={ () => props.setView('thumb') }>Thumbnail view</button>
-      <button value="gallery" onClick={ () => props.setView('gallery') }>Gallery view</button>
+      <button onClick={ () => props.setView('list') }>List view</button>
+      <button onClick={ () => props.setView('thumb') }>Thumbnail view</button>
+      <button onClick={ () => props.setView('gallery') }>Gallery view</button>
     </div>
   )
 }
 
 function SelectView(props) {
-  if (props.view === 'list') {
-    return ( <ListView images={images} /> )
-  } else if (props.view === 'thumb') {
-    return ( <ThumbView images={images} />)
-  } else if (props.view === 'gallery') {
-    return ( <GalleryView images={images} /> ) 
-  }
+  let components = { 'list': ListView, 'thumb': ThumbView, 'gallery': GalleryView }
+  let Selected = components[props.view];
+  return ( <Selected images={images} /> )
+}
+
+SelectView.propTypes = {
+  images: React.PropTypes.array
 }
 
 export default class ImageGallery extends Component {
