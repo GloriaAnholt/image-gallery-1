@@ -3,6 +3,6 @@ exports[`The Image Gallery React App Renders ths app 1`] = `
   <SelectorButtons
     setView={[Function]} />
   <SelectView
-    view="list" />
+    view="thumb" />
 </div>
 `;

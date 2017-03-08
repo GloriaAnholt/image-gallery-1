@@ -12,18 +12,4 @@ describe('The Image Gallery React App', () => {
         expect(toJson(rendered)).toMatchSnapshot();
     });
 
-    // it('saves a snapshot of the Gallery view', () => {
-    //     const rendered = <Gallery images={ images }/>
-    //     expect(toJson(rendered)).toMatchSnapshot();
-    // });
-
-    // it('saves a snapshot of the List view', () => {
-    //     const rendered = <List  images={ images }/>
-    //     expect(toJson(rendered)).toMatchSnapshot();
-    // });
-
-    // it('saves a snapshot of the Thumb view', () => {
-    //     const rendered = <Thumb  images={ images }/>
-    //     expect(toJson(rendered)).toMatchSnapshot();
-    // });
 })
