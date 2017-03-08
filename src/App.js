@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import './index.css';
-import ListView from './ListView';
+import DetailView from './DetailView';
 import ThumbView from './ThumbView';
 import GalleryView from './GalleryView';
 import images from './images.json';
@@ -11,7 +11,7 @@ function SelectorButtons(props) {
   return (
     <div>
       <p>Select a view type</p>
-      <button onClick={ () => props.setView('list') }>List view</button>
+      <button onClick={ () => props.setView('detail') }>Detail view</button>
       <button onClick={ () => props.setView('thumb') }>Thumbnail view</button>
       <button onClick={ () => props.setView('gallery') }>Gallery view</button>
     </div>
@@ -19,7 +19,7 @@ function SelectorButtons(props) {
 }
 
 function SelectView(props) {
-  let components = { 'list': ListView, 'thumb': ThumbView, 'gallery': GalleryView }
+  let components = { 'detail': DetailView, 'thumb': ThumbView, 'gallery': GalleryView }
   let Selected = components[props.view];
   return ( <Selected images={images} /> )
 }
@@ -32,7 +32,7 @@ export default class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'list'
+      view: 'thumb'
     }
     this.setView = this.setView.bind(this);
   }
