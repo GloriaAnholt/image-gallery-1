@@ -21,16 +21,8 @@
   "devDependencies": {
     "enzyme": "^2.7.1",
     "enzyme-to-json": "^1.5.0",
-    "jest": "^19.0.2",
+    "eslint-plugin-react": "^6.10.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.9.4"
-  },
-  "jest": {
-    "transform": {".*": "<rootDir>/node_modules/babel-jest"},
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react/",
-      "<rootDir>/node_modules/react-dom",
-      "<rootDir>/node_modules/fbjs",
-      "<rootDir>/node_modules/react-addons-test-utils"
-    ]
   }
 }
