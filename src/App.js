@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 import './index.css';
 import DetailView from './DetailView';
 import ThumbView from './ThumbView';
 import GalleryView from './GalleryView';
-import images from './images.json';
+import AddImage from './AddImage';
+import imageArray from './images.json';
 
 
 function SelectorButtons(props) {
@@ -21,7 +21,7 @@ function SelectorButtons(props) {
 function SelectView(props) {
   let components = { 'detail': DetailView, 'thumb': ThumbView, 'gallery': GalleryView }
   let Selected = components[props.view];
-  return ( <Selected images={images} /> )
+  return ( <Selected images={ props.images } /> )
 }
 
 SelectView.propTypes = {
@@ -32,20 +32,30 @@ export default class ImageGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'thumb'
+      view: 'thumb',
+      images: imageArray
     }
     this.setView = this.setView.bind(this);
+    this.addImage = this.addImage.bind(this);
   }
 
   setView(selection) {
     this.setState({ view: selection })
   }
 
+  addImage(image) {
+    let updatedImages = this.state.images.slice();
+    updatedImages.push(image);
+    console.log('the new images array is ', updatedImages);
+    this.setState({ images: updatedImages })
+  }
+
   render() {
     return (
       <div>
         <SelectorButtons setView={ this.setView } />
-        <SelectView view={ this.state.view } /> 
+        <AddImage addImage={ this.addImage } /> 
+        <SelectView view={ this.state.view } images={ this.state.images } /> 
       </div>
     )
   }
