@@ -23,8 +23,8 @@ You can use your own URL, or work with this cute bunny: http://f.cl.ly/items/3g3
 The three image viewer components you should build are:
 
 1. "list" - display the title of the image, the link (not the  actual image), and description.  
-1. "thumbnail" - the image as a "thumbnail" (within a 100x100 pixel scale) and the title . 
-1. "gallery" - Display the title, the full-size image, and the description. 
+2. "thumbnail" - the image as a "thumbnail" (within a 100x100 pixel scale) and the title . 
+3. "gallery" - Display the title, the full-size image, and the description. 
 
 Then you need a view selector component, and a top-level app component to put everything in
 
