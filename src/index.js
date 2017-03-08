@@ -4,29 +4,8 @@ import './index.css';
 import ListView from './ListView';
 import ThumbView from './ThumbView';
 import GalleryView from './GalleryView';
+import images from './images.json';
 
-const images = [
-  {
-    title: 'Rainbow frog',
-    description: 'I\'m probably poisonious.',
-    url: 'https://s-media-cache-ak0.pinimg.com/736x/bf/4e/40/bf4e4067252227bd3f758bba7dcee2ff.jpg'
-  },
-  {
-    title: 'Green leaf frogs',
-    description: 'We\'re so cute!',
-    url: 'http://www.savethefrogs.com/amphibians/images/south-america/Hypsiboas-cinerascens-8a.jpg'
-  },
-  {
-    title: 'Tree frog',
-    description: 'Whaddya looking at buddy?',
-    url: 'http://www.vorgee.com/sites/default/files/imagecache/left-col/Fun_Facts_Main_Frog.jpg'
-  },
-  {
-    title: 'Toad',
-    description: 'Bud. Bud. Bud.',
-    url: 'http://www.defenders.org/sites/default/files/frog-kevin-clark-dpc.jpg'
-  }
-]
 
 function SelectorButtons(props) {
   return (
