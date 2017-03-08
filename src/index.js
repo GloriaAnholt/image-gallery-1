@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import './index.css';
-import ListView from './ListView';
-import ThumbView from './ThumbView';
-import GalleryView from './GalleryView';
+import SelectView from './SelectView';
 import images from './images.json';
 
 
@@ -18,15 +16,6 @@ function SelectorButtons(props) {
   )
 }
 
-function SelectView(props) {
-  if (props.view === 'list') {
-    return ( <ListView images={images} /> )
-  } else if (props.view === 'thumb') {
-    return ( <ThumbView images={images} />)
-  } else if (props.view === 'gallery') {
-    return ( <GalleryView images={images} /> ) 
-  }
-}
 
 export default class ImageGallery extends Component {
   constructor(props) {
@@ -51,7 +40,6 @@ export default class ImageGallery extends Component {
     this.setState({ view: 'gallery'})
   }
 
-
   render() {
     return (
       <div>
@@ -59,7 +47,7 @@ export default class ImageGallery extends Component {
             onList={ this.onList }
             onThumb={ this.onThumb }
             onGallery={ this.onGallery } />
-        <SelectView view={ this.state.view } /> 
+        <SelectView view={ this.state.view } images={images} /> 
       </div>
     )
   }
